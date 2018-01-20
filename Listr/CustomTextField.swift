@@ -42,7 +42,7 @@ class CustomTextField: UITextField {
         self.layer.borderColor = UIColor(red: 255, green: 255, blue: 255).cgColor
         
         if let phText = self.placeholder {
-            self.attributedPlaceholder = NSAttributedString(string: phText, attributes: [NSForegroundColorAttributeName: UIColor(netHex: 0xB3B3B3)])
+            self.attributedPlaceholder = NSAttributedString(string: phText, attributes: [NSAttributedStringKey.foregroundColor: UIColor(netHex: 0xB3B3B3)])
         }
         
         if let fnt = textFont {
