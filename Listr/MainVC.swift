@@ -8,16 +8,15 @@
 
 import UIKit
 import CoreData
+import CobrowseIO
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-    
     @IBOutlet weak var segment: UISegmentedControl!
-    
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var helpButton: UIBarButtonItem!
     var controller: NSFetchedResultsController<Item>!
-    
+    var sessionController: CBIOViewController!
     
 
     override func viewDidLoad() {
@@ -26,10 +25,46 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        //generateTestData()
         attemptFetch()
-       
     }
+    
+    // This function is run when the help button is tapped
+    // It displays a UIAlertController that presents different support options,
+    // one of which is cobrowse.io remote screen sharing
+    @IBAction func help(_ sender: UIBarButtonItem) {
+        let actionSheet = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        actionSheet.popoverPresentationController?.barButtonItem = helpButton
+        actionSheet.popoverPresentationController?.sourceView = self.view
+        
+        // Set up a CBIOViewController. This is a default user interface
+        // provided by the cobrowse SDK for starting a cobrowse.io screen sharing
+        // session.
+        // It's also possible for advanced use cases to create a custom interface
+        // for this purpose, see the cobrowse.io documentation for more information.
+        let startCobrowse = UIAlertAction(
+            title: "Share screen with remote agent",
+            style: .default,
+            handler: { (action) -> Void in
+                self.sessionController = CBIOViewController()
+                self.navigationController?.pushViewController(self.sessionController, animated: true)
+            }
+        )
+        
+        // Also provide a link to learn more about the srceensharing technology
+        let url = URL(string: "https://cobrowse.io/listr")
+        let learnMore = UIAlertAction(title: "Learn more about screen share", style: .default, handler: {(action) -> Void in UIApplication.shared.open(url!)
+        })
+        actionSheet.addAction(startCobrowse)
+        actionSheet.addAction(learnMore)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        actionSheet.view.tintColor = UIColor.darkGray
+        self.navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -187,28 +222,4 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
-    func generateTestData() {
-        
-        let item1 = Item(context: context)
-        item1.title = "MacBook Pro"
-        item1.price = 1800
-        item1.details = "I can't wait until the September event, I hope they release the new MBPs"
-        
-        let item2 = Item(context: context)
-        item2.title = "Tesla Model S"
-        item2.price = 110000
-        item2.details = "Oh man, this is a beautiful car. One day I will have it."
-        
-        let item3 = Item(context: context)
-        item3.title = "Bose Headphones"
-        item3.price = 400
-        item3.details = "Man! Its damn great to have those noise cancelling headphones"
-        
-        ad.saveContext()
-        
-    }
-    
-    
-    
 }
-
