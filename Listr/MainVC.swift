@@ -14,7 +14,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var helpView: UIBarButtonItem!
+    @IBOutlet weak var helpButton: UIBarButtonItem!
     var controller: NSFetchedResultsController<Item>!
     var sessionController: CBIOViewController!
     
@@ -40,16 +40,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     // It displays a UIAlertController that presents different support options,
     // one of which is cobrowse.io remote screen sharing
     @IBAction func help(_ sender: UIBarButtonItem) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let actionSheet = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        actionSheet.popoverPresentationController?.barButtonItem = helpButton
+        actionSheet.popoverPresentationController?.sourceView = self.view
+
         
         // Set up a CBIOViewController. This is a default user interface
         // provided by the cobrowse SDK for starting a cobrowse.io screen sharing
         // session.
         // It's also possible for advanced use cases to create a custom interface
         // for this purpose, see the cobrowse.io documentation for more information.
-        let startCobrowse = UIAlertAction(title: "Share screen with remote agent", style: .default, handler: {(action) -> Void in self.sessionController = CBIOViewController()
-            self.navigationController?.pushViewController(self.sessionController, animated: true)
-        })
+        let startCobrowse = UIAlertAction(
+            title: "Share screen with remote agent",
+            style: .default,
+            handler: { (action) -> Void in
+                self.sessionController = CBIOViewController()
+                self.navigationController?.pushViewController(self.sessionController, animated: true)
+            }
+        )
         
         // Also provide a link to learn more about the srceensharing technology
         let url = URL(string: "https://cobrowse.io/listr")

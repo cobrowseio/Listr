@@ -1,8 +1,4 @@
 # Listr
-A listing app written in Swift for iOS.
+This is a demo application for the [Cobrowse.io](https://cobrowse.io) screen sharing service. See the [CobrowseIO SDK](https://github.com/cobrowseio/cobrowse-sdk-ios-binary) repository for more information.
 
-**Listr** is an app I developed following Mark Price's iOS 10 course.
-The idea is to list all the items/things you wish to buy, adding the item's _picture, price, details_ and the _store_ you wish to buy it from.
-It uses **Core Data** to save user input, and sorts the entries based on _date created, title_ or _price_. 
-
-![Screenshot](https://raw.github.com/etchsaleh/Listr/screenshots/scr.png)
+<img src="/screenshots/one.png?raw=true" width="280"> <img src="/screenshots/two.png?raw=true" width="280"> <img src="/screenshots/three.png?raw=true" width="280">

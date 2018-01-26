@@ -163,6 +163,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="helpButton" destination="hGr-X0-1cy" id="dVu-Ua-BPV"/>
                         <outlet property="segment" destination="Ood-lA-0zh" id="otA-BI-4pe"/>
                         <outlet property="tableView" destination="OIa-za-4xD" id="x5I-iN-WJm"/>
                         <segue destination="ruQ-Tl-S2A" kind="show" identifier="ItemDetailsVC" id="Go3-7R-jvZ"/>
