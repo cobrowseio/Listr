@@ -27,6 +27,10 @@
 		47704D781E3D9176008747C7 /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47704D701E3D9176008747C7 /* Store+CoreDataClass.swift */; };
 		47704D791E3D9176008747C7 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47704D711E3D9176008747C7 /* Store+CoreDataProperties.swift */; };
 		47704D7E1E3D98E0008747C7 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47704D7D1E3D98E0008747C7 /* MaterialView.swift */; };
+		892520932015ABD600631CE2 /* AwesomeSpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8925208F2015ABD500631CE2 /* AwesomeSpotlightView.swift */; };
+		892520942015ABD600631CE2 /* AwesomeSpotlightViewBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 892520902015ABD500631CE2 /* AwesomeSpotlightViewBundle.bundle */; };
+		892520952015ABD600631CE2 /* Localizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892520912015ABD500631CE2 /* Localizator.swift */; };
+		892520962015ABD600631CE2 /* AwesomeSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892520922015ABD500631CE2 /* AwesomeSpotlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		47704D711E3D9176008747C7 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47704D7D1E3D98E0008747C7 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		683E349F422ECD400ED886FC /* Pods-Listr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Listr/Pods-Listr.debug.xcconfig"; sourceTree = "<group>"; };
+		8925208F2015ABD500631CE2 /* AwesomeSpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeSpotlightView.swift; sourceTree = "<group>"; };
+		892520902015ABD500631CE2 /* AwesomeSpotlightViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AwesomeSpotlightViewBundle.bundle; sourceTree = "<group>"; };
+		892520912015ABD500631CE2 /* Localizator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizator.swift; sourceTree = "<group>"; };
+		892520922015ABD500631CE2 /* AwesomeSpotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeSpotlight.swift; sourceTree = "<group>"; };
 		B43228721941818CEA011FFC /* Pods-Listr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Listr/Pods-Listr.release.xcconfig"; sourceTree = "<group>"; };
 		D2067C8F4813863607CD36B3 /* Pods_Listr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Listr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +108,10 @@
 		47704D421E3D8929008747C7 /* Listr */ = {
 			isa = PBXGroup;
 			children = (
+				892520922015ABD500631CE2 /* AwesomeSpotlight.swift */,
+				8925208F2015ABD500631CE2 /* AwesomeSpotlightView.swift */,
+				892520902015ABD500631CE2 /* AwesomeSpotlightViewBundle.bundle */,
+				892520912015ABD500631CE2 /* Localizator.swift */,
 				47704D7C1E3D98C3008747C7 /* View */,
 				47704D681E3D8CDE008747C7 /* Model */,
 				4761413E1E3EACD900429FC0 /* Controller */,
@@ -229,6 +241,7 @@
 				47704D511E3D8929008747C7 /* LaunchScreen.storyboard in Resources */,
 				476141421E3EAE7800429FC0 /* Assets.xcassets in Resources */,
 				47704D491E3D8929008747C7 /* Main.storyboard in Resources */,
+				892520942015ABD600631CE2 /* AwesomeSpotlightViewBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,9 +315,12 @@
 				47704D731E3D9176008747C7 /* ItemType+CoreDataProperties.swift in Sources */,
 				47704D461E3D8929008747C7 /* MainVC.swift in Sources */,
 				47704D7E1E3D98E0008747C7 /* MaterialView.swift in Sources */,
+				892520962015ABD600631CE2 /* AwesomeSpotlight.swift in Sources */,
 				47704D741E3D9176008747C7 /* Image+CoreDataClass.swift in Sources */,
 				47704D791E3D9176008747C7 /* Store+CoreDataProperties.swift in Sources */,
 				47704D4C1E3D8929008747C7 /* Listr.xcdatamodeld in Sources */,
+				892520952015ABD600631CE2 /* Localizator.swift in Sources */,
+				892520932015ABD600631CE2 /* AwesomeSpotlightView.swift in Sources */,
 				4713A0881E3FFF9800A86C45 /* HideKeyboard.swift in Sources */,
 				47704D441E3D8929008747C7 /* AppDelegate.swift in Sources */,
 				476141461E3EB85300429FC0 /* ItemDetailsVC.swift in Sources */,
