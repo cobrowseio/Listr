@@ -14,6 +14,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var helpView: UIBarButtonItem!
     var controller: NSFetchedResultsController<Item>!
     var sessionController: CBIOViewController!
     
@@ -25,6 +26,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.dataSource = self
         
         attemptFetch()
+    
+        let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 4, y: 11, width: 60, height: 60), shape: .circle, text: "Click for help", isAllowPassTouchesThroughSpotlight: true)
+
+        let spotlightView = AwesomeSpotlightView(frame: UIApplication.shared.keyWindow!.frame, spotlight: [spotlight1])
+        spotlightView.cutoutRadius = 8
+        spotlightView.textLabelFont = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.bold)
+        UIApplication.shared.keyWindow!.addSubview(spotlightView)
+        spotlightView.start()
     }
     
     // This function is run when the help button is tapped
@@ -50,7 +59,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         actionSheet.addAction(learnMore)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         actionSheet.view.tintColor = UIColor.darkGray
-        self.navigationController?.present(actionSheet, animated: true, completion: nil)
+        actionSheet.popoverPresentationController?.barButtonItem = helpView
+        actionSheet.popoverPresentationController?.sourceView = self.view
+        self.navigationController?.present(actionSheet, animated: true, completion: {() in
+            let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 5, y:472, width: 365, height: 68), shape: .roundRectangle, text: "Request screenshare from customer support", isAllowPassTouchesThroughSpotlight: true)
+            
+            let spotlightView = AwesomeSpotlightView(frame: UIApplication.shared.keyWindow!.frame, spotlight: [spotlight1])
+            spotlightView.cutoutRadius = 8
+            spotlightView.textLabelFont = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.bold)
+            UIApplication.shared.keyWindow!.addSubview(spotlightView)
+            spotlightView.start()
+            })
     }
     
     
