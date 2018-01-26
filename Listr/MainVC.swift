@@ -72,8 +72,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         actionSheet.addAction(learnMore)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         actionSheet.view.tintColor = UIColor.darkGray
-        actionSheet.popoverPresentationController?.barButtonItem = helpView
-        actionSheet.popoverPresentationController?.sourceView = self.view
+    
+
         self.navigationController?.present(actionSheet, animated: true, completion: {() in
             let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 5, y:472, width: 365, height: 68), shape: .roundRectangle, text: "Request screenshare from customer support", isAllowPassTouchesThroughSpotlight: true)
             
