@@ -27,7 +27,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         attemptFetch()
     
-        let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 4, y: 11, width: 60, height: 60), shape: .circle, text: "Click for help", isAllowPassTouchesThroughSpotlight: true)
+        let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 4, y: 11, width: 60, height: 60), shape: .circle, text: "Click 'Help' button", isAllowPassTouchesThroughSpotlight: true)
 
         let spotlightView = AwesomeSpotlightView(frame: UIApplication.shared.keyWindow!.frame, spotlight: [spotlight1])
         spotlightView.cutoutRadius = 8
@@ -40,49 +40,52 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     // It displays a UIAlertController that presents different support options,
     // one of which is cobrowse.io remote screen sharing
     @IBAction func help(_ sender: UIBarButtonItem) {
-
-        let actionSheet = UIAlertController(
-            title: nil,
-            message: nil,
-            preferredStyle: .actionSheet
-        )
-        actionSheet.popoverPresentationController?.barButtonItem = helpButton
-        actionSheet.popoverPresentationController?.sourceView = self.view
-
         
-        // Set up a CBIOViewController. This is a default user interface
-        // provided by the cobrowse SDK for starting a cobrowse.io screen sharing
-        // session.
-        // It's also possible for advanced use cases to create a custom interface
-        // for this purpose, see the cobrowse.io documentation for more information.
-        let startCobrowse = UIAlertAction(
-            title: "Share screen with remote agent",
-            style: .default,
-            handler: { (action) -> Void in
-                self.sessionController = CBIOViewController()
-                self.navigationController?.pushViewController(self.sessionController, animated: true)
-            }
-        )
+        self.sessionController = CBIOViewController()
+        self.navigationController?.pushViewController(self.sessionController, animated: true)
         
-        // Also provide a link to learn more about the srceensharing technology
-        let url = URL(string: "https://cobrowse.io/listr")
-        let learnMore = UIAlertAction(title: "Learn more about screen share", style: .default, handler: {(action) -> Void in UIApplication.shared.open(url!)
-        })
-        actionSheet.addAction(startCobrowse)
-        actionSheet.addAction(learnMore)
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        actionSheet.view.tintColor = UIColor.darkGray
-    
-
-        self.navigationController?.present(actionSheet, animated: true, completion: {() in
-            let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 5, y:472, width: 365, height: 68), shape: .roundRectangle, text: "Request screenshare from customer support", isAllowPassTouchesThroughSpotlight: true)
-            
-            let spotlightView = AwesomeSpotlightView(frame: UIApplication.shared.keyWindow!.frame, spotlight: [spotlight1])
-            spotlightView.cutoutRadius = 8
-            spotlightView.textLabelFont = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.bold)
-            UIApplication.shared.keyWindow!.addSubview(spotlightView)
-            spotlightView.start()
-            })
+//        let actionSheet = UIAlertController(
+//            title: nil,
+//            message: nil,
+//            preferredStyle: .actionSheet
+//        )
+//        actionSheet.popoverPresentationController?.barButtonItem = helpButton
+//        actionSheet.popoverPresentationController?.sourceView = self.view
+//
+//
+//        // Set up a CBIOViewController. This is a default user interface
+//        // provided by the cobrowse SDK for starting a cobrowse.io screen sharing
+//        // session.
+//        // It's also possible for advanced use cases to create a custom interface
+//        // for this purpose, see the cobrowse.io documentation for more information.
+//        let startCobrowse = UIAlertAction(
+//            title: "Share screen with remote agent",
+//            style: .default,
+//            handler: { (action) -> Void in
+//                self.sessionController = CBIOViewController()
+//                self.navigationController?.pushViewController(self.sessionController, animated: true)
+//            }
+//        )
+//
+//        // Also provide a link to learn more about the srceensharing technology
+//        let url = URL(string: "https://cobrowse.io/listr")
+//        let learnMore = UIAlertAction(title: "Learn more about screen share", style: .default, handler: {(action) -> Void in UIApplication.shared.open(url!)
+//        })
+//        actionSheet.addAction(startCobrowse)
+//        actionSheet.addAction(learnMore)
+//        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+//        actionSheet.view.tintColor = UIColor.darkGray
+//
+//
+//        self.navigationController?.present(actionSheet, animated: true, completion: {() in
+//            let spotlight1 = AwesomeSpotlight(withRect: CGRect(x: 5, y:472, width: 365, height: 68), shape: .roundRectangle, text: "Request screenshare from customer support", isAllowPassTouchesThroughSpotlight: true)
+//
+//            let spotlightView = AwesomeSpotlightView(frame: UIApplication.shared.keyWindow!.frame, spotlight: [spotlight1])
+//            spotlightView.cutoutRadius = 8
+//            spotlightView.textLabelFont = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.bold)
+//            UIApplication.shared.keyWindow!.addSubview(spotlightView)
+//            spotlightView.start()
+//            })
     }
     
     
