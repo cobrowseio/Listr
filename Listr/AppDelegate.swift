@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CobrowseIO
+import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         CobrowseIO.instance().license = "trial";
+        Intercom.logout();
+        Intercom.setApiKey("ios_sdk-189cc5876745a1777509ef836d5be9500ba363ba", forAppId:"r7ksc7hl");
+        Intercom.registerUnidentifiedUser();
+        Intercom.setLauncherVisible(true);
         
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.

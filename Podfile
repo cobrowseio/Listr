@@ -7,5 +7,6 @@ target 'Listr' do
 
   # Pods for Listr
   pod 'CobrowseIO'
+  pod 'Intercom'
 
 end
