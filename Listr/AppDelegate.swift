@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Set your lciense key below to associate sessions with your
+        // Set your license key below to associate sessions with your
         // account.
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
