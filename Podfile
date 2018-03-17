@@ -7,5 +7,7 @@ target 'Listr' do
 
   # Pods for Listr
   pod 'CobrowseIO'
+  pod 'OneSignal', '>= 2.5.2', '< 3.0'
+
 
 end
