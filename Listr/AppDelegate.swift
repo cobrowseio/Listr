@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // account.
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
-        CobrowseIO.instance().license = "mlksFwEisSLeSeyIOvZ9Q4s25KA";
+        CobrowseIO.instance().license = "trial";
         
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
