@@ -33,7 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("cobrowseurl is ", url)
+//        if (UIApplication.shared.keyWindow!.subviews[0].isKind(of: AwesomeSpotlight class)) {
+//            print("is spotlight")
+//            }
+        for (index,spotlight) in UIApplication.shared.keyWindow!.subviews.filter({$0 is AwesomeSpotlightView}).enumerated(){
+            spotlight.isHidden = true
+        }
+        return true
+    }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
