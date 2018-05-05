@@ -1,8 +1,8 @@
 PODS:
-  - CobrowseIO (1.0.3):
-    - CobrowseIO/Release (= 1.0.3)
+  - CobrowseIO (1.1.1):
+    - CobrowseIO/Release (= 1.1.1)
     - Socket.IO-Client-Swift (~> 13.1.3)
-  - CobrowseIO/Release (1.0.3):
+  - CobrowseIO/Release (1.1.1):
     - Socket.IO-Client-Swift (~> 13.1.3)
   - Socket.IO-Client-Swift (13.1.3):
     - Starscream (~> 3.0.2)
@@ -12,7 +12,7 @@ DEPENDENCIES:
   - CobrowseIO
 
 SPEC CHECKSUMS:
-  CobrowseIO: fab13ecb241c63b27c549cf225954fb1c0b6c99c
+  CobrowseIO: 0a06240668c81a8d787dbdf14f42ed0482888f5e
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
