@@ -25,6 +25,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
+        generateTestData()
         attemptFetch()
     }
     
@@ -56,7 +57,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         // Also provide a link to learn more about the srceensharing technology
         let url = URL(string: "https://cobrowse.io/listr")
-        let learnMore = UIAlertAction(title: "Learn more about screen share", style: .default, handler: {(action) -> Void in UIApplication.shared.open(url!)
+        let learnMore = UIAlertAction(title: "Learn more about Cobrowse.io", style: .default, handler: {(action) -> Void in UIApplication.shared.open(url!)
         })
         actionSheet.addAction(startCobrowse)
         actionSheet.addAction(learnMore)
@@ -221,5 +222,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             break
         }
     }
-    
+    func generateTestData() {
+        
+        let item1 = Item(context: context)
+        item1.title = "The Exclusion of Desire"
+        item1.price = 80
+        item1.details = "Number 4789 om artist's \"el waterfallo\" series"
+        
+        let img1 = Image(context: context)
+        img1.image = UIImage(named: "Image5")
+        item1.toImage = img1;
+        
+        
+        let item2 = Item(context: context)
+        item2.title = "Vision of Lust"
+        item2.price = 100
+        item2.details = "3rd attempt by painter Federico Magiano"
+        
+        let img2 = Image(context: context)
+        img2.image = UIImage(named: "Image3")
+        item2.toImage = img2;
+        
+        
+        ad.saveContext()
+        
+    }
 }

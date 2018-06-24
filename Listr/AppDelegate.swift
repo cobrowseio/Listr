@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         CobrowseIO.instance().license = "trial";
-        CobrowseIO.instance().api = "https://zephyr.ngrok.io";
 
         print("Cobrowse device id:  \(CobrowseIO.instance().deviceId)")
 
