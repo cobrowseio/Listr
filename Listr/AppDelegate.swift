@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import CobrowseIO
-import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,63 +23,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         CobrowseIO.instance().license = "trial";
+        CobrowseIO.instance().api = "https://zephyr.ngrok.io";
+
+        print("Cobrowse device id:  \(CobrowseIO.instance().deviceId)")
+
+        let device_id = UserDefaults.standard.string(forKey: "device_id");
+        if (device_id != nil) {
+            CobrowseIO.instance().customData = [
+                kCBIODeviceIdKey: device_id! as NSObject
+            ]
+        }
+
         
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
         // CobrowseIO.instance().onStatusTap = { () -> Void in
         //     print("put status bar tap logic here.")
         // }
-        
-        let notificationReceivedBlock: OSHandleNotificationReceivedBlock = { notification in
-    
-            let additionalData = notification?.payload.additionalData
-            let code = additionalData?["cobrowse_code"]
-            if (code != nil) {
-                CobrowseIO.instance().getSession(code as! String, callback: { (err: Error?, session: CBIOSession?) in
-                    print("fetched", err, session?.id())
-                    session?.activate({ (error: Error?, session: CBIOSession?) in
-                        print("session activated")
-                    })
-                })
-            }
-            
-        }
-        
-        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
-            // This block gets called when the user reacts to a notification received
-            let payload: OSNotificationPayload = result!.notification.payload
-            
-            let code = payload.additionalData?["cobrowse_code"]
-            if (code != nil) {
-                CobrowseIO.instance().getSession(code as! String, callback: { (err: Error?, session: CBIOSession?) in
-                    print("fetched", err, session?.id())
-                    session?.activate({ (error: Error?, session: CBIOSession?) in
-                        print("session activated")
-                    })
-                })
-            }
-        }
-        
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-        
-        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
-        OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "7a391fa3-7cb5-49f1-a949-d5e0dc6ffd4f",
-                                        handleNotificationReceived: notificationReceivedBlock,
-                                        handleNotificationAction: notificationOpenedBlock,
-                                        settings: onesignalInitSettings)
-        
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.none;
-        
-        // Recommend moving the below line to prompt for push after informing the user about
-        //   how your app will use them.
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-            print("User accepted notifications: \(accepted)")
-        })
-        
-        // Sync hashed email if you have a login system or collect it.
-        //   Will be used to reach the user at the most optimal time of day.
-        // OneSignal.syncHashedEmail(userEmail)
         
         return true
     }

@@ -1,24 +1,21 @@
 PODS:
-  - CobrowseIO (0.0.24):
-    - CobrowseIO/Release (= 0.0.24)
-    - Socket.IO-Client-Swift (~> 13.1.1)
-  - CobrowseIO/Release (0.0.24):
-    - Socket.IO-Client-Swift (~> 13.1.1)
-  - OneSignal (2.8.1)
-  - Socket.IO-Client-Swift (13.1.2):
+  - CobrowseIO (1.2.1):
+    - CobrowseIO/Release (= 1.2.1)
+    - Socket.IO-Client-Swift (~> 13.2.1)
+  - CobrowseIO/Release (1.2.1):
+    - Socket.IO-Client-Swift (~> 13.2.1)
+  - Socket.IO-Client-Swift (13.2.1):
     - Starscream (~> 3.0.2)
-  - Starscream (3.0.4)
+  - Starscream (3.0.5)
 
 DEPENDENCIES:
   - CobrowseIO
-  - OneSignal (< 3.0, >= 2.5.2)
 
 SPEC CHECKSUMS:
-  CobrowseIO: 3773e5eafed82cd7813909d5b4da76611e19ecf8
-  OneSignal: 7dfd61c1ea88571ddf772c53c7ae45407c5eb2f7
-  Socket.IO-Client-Swift: 010d2f464bdd1849b859c0cd0500d68194401ac8
-  Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
+  CobrowseIO: 1cafbef819d2b18f4b13ce386dd3b0f80acf6680
+  Socket.IO-Client-Swift: b94943e2fb916fe2f95244b9ed21828634002280
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
-PODFILE CHECKSUM: f06379daee6ea9fa40b641779372941a2115d160
+PODFILE CHECKSUM: 7e2add86ffa306fe3c99ad70f5d8c07a13c5984a
 
 COCOAPODS: 1.3.1
