@@ -25,7 +25,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        generateTestData()
+        if (tableView.numberOfRows(inSection: 0) == 0) {
+            generateTestData()
+        }
         attemptFetch()
     }
     
