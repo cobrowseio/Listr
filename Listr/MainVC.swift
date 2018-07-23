@@ -25,10 +25,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        if (tableView.numberOfRows(inSection: 0) == 0) {
+        attemptFetch()
+        if (tableView.numberOfSections > 0 && tableView.numberOfRows(inSection: 0) == 0) {
             generateTestData()
         }
-        attemptFetch()
     }
     
     // This function is run when the help button is tapped

@@ -34,14 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        for online demo only
 //        UserDefaults.standard.set("abcdef", forKey: "device_id")
 //        UserDefaults.standard.synchronize()
-//        let device_id = UserDefaults.standard.string(forKey: "device_id");
-//        if (device_id != nil) {
-//            print("Trial device_id is: \(device_id!)")
-//            CobrowseIO.instance().customData = [
-//                kCBIODeviceIdKey: device_id! as NSObject
-//            ]
-//
-//        }
+        let device_id = UserDefaults.standard.string(forKey: "device_id");
+        if (device_id != nil) {
+            print("Trial device_id is: \(device_id!)")
+            CobrowseIO.instance().customData = [
+                kCBIODeviceIdKey: device_id! as NSObject
+            ]
+
+        }
 
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
