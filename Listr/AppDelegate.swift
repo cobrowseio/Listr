@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // which is accessed at https://cobrowse.io/trial
         CobrowseIO.instance().license = "trial";
 
-        print("Cobrowse device id:  \(CobrowseIO.instance().deviceId)")
+        print("Cobrowse device id:  \(String(describing: CobrowseIO.instance().deviceId))")
 
         CobrowseIO.instance().customData = [
             kCBIOUserNameKey: "Sam Turner" as NSObject,
