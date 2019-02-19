@@ -52,6 +52,7 @@
 		47704D711E3D9176008747C7 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47704D7D1E3D98E0008747C7 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		683E349F422ECD400ED886FC /* Pods-Listr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Listr/Pods-Listr.debug.xcconfig"; sourceTree = "<group>"; };
+		8990344D201FE02300F93AA6 /* Listr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Listr.entitlements; sourceTree = "<group>"; };
 		B43228721941818CEA011FFC /* Pods-Listr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Listr/Pods-Listr.release.xcconfig"; sourceTree = "<group>"; };
 		D2067C8F4813863607CD36B3 /* Pods_Listr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Listr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +101,7 @@
 		47704D421E3D8929008747C7 /* Listr */ = {
 			isa = PBXGroup;
 			children = (
+				8990344D201FE02300F93AA6 /* Listr.entitlements */,
 				47704D7C1E3D98C3008747C7 /* View */,
 				47704D681E3D8CDE008747C7 /* Model */,
 				4761413E1E3EACD900429FC0 /* Controller */,
@@ -200,6 +202,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -451,6 +461,8 @@
 			baseConfigurationReference = 683E349F422ECD400ED886FC /* Pods-Listr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Listr/Info.plist;
@@ -469,6 +481,8 @@
 			baseConfigurationReference = B43228721941818CEA011FFC /* Pods-Listr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Listr/Info.plist;

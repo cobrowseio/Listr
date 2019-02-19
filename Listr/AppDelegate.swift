@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import CobrowseIO
-import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,16 +18,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Set your lciense key below to associate sessions with your
+        // Set your license key below to associate sessions with your
         // account.
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         CobrowseIO.instance().license = "trial";
-        Intercom.logout();
-        Intercom.setApiKey("ios_sdk-189cc5876745a1777509ef836d5be9500ba363ba", forAppId:"r7ksc7hl");
-        Intercom.registerUnidentifiedUser();
-        Intercom.setLauncherVisible(true);
-        
+
+        print("Cobrowse device id:  \(String(describing: CobrowseIO.instance().deviceId))")
+
+        CobrowseIO.instance().customData = [
+            kCBIOUserNameKey: "Sam Turner" as NSObject,
+            kCBIOUserEmailKey: "sam.turner@example.com" as NSObject
+        ]
+
+//        for online demo only
+//        UserDefaults.standard.set("abcdef", forKey: "device_id")
+//        UserDefaults.standard.synchronize()
+        let device_id = UserDefaults.standard.string(forKey: "device_id");
+        if (device_id != nil) {
+            print("Trial device_id is: \(device_id!)")
+            CobrowseIO.instance().customData = [
+                kCBIODeviceIdKey: device_id! as NSObject
+            ]
+
+        }
+
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
         // CobrowseIO.instance().onStatusTap = { () -> Void in
