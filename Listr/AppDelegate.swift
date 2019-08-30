@@ -79,6 +79,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             customData["cobrowseio_demo_id"] = cobrowseio_demo_id! as NSObject
         }
 
+        // legacy demo support
+        let device_id = UserDefaults.standard.string(forKey: "device_id");
+        if (device_id != nil) {
+            print("Trial device_id is: \(device_id!)")
+            customData[kCBIODeviceIdKey] = device_id! as NSObject
+        }
+
         CobrowseIO.instance().customData = customData
 
         // To override default status tap behavior set the status
