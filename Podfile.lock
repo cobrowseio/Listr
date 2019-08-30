@@ -1,24 +1,31 @@
 PODS:
-  - CobrowseIO (1.9.0):
-    - CobrowseIO/Release (= 1.9.0)
-    - Socket.IO-Client-Swift (~> 14.0)
-  - CobrowseIO/Release (1.9.0):
-    - Socket.IO-Client-Swift (~> 14.0)
-  - Intercom (5.2.1)
-  - Socket.IO-Client-Swift (14.0.0):
-    - Starscream (~> 3.0.6)
-  - Starscream (3.0.6)
+  - CobrowseIO (1.15.0):
+    - CobrowseIO/Release (= 1.15.0)
+    - Socket.IO-Client-Swift (~> 15.1)
+  - CobrowseIO/Release (1.15.0):
+    - Socket.IO-Client-Swift (~> 15.1)
+  - Intercom (5.4.1)
+  - Socket.IO-Client-Swift (15.1.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.0)
 
 DEPENDENCIES:
   - CobrowseIO
   - Intercom
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CobrowseIO
+    - Intercom
+    - Socket.IO-Client-Swift
+    - Starscream
+
 SPEC CHECKSUMS:
-  CobrowseIO: 4fcb70b56980a8620c720034ba813cf780fc76bf
-  Intercom: 53f07c24f0ca18c1e910750e79b75f9c9867338f
-  Socket.IO-Client-Swift: 21e6a8a23a7d367d5ddfab6cbbd3c679cf3c25d6
-  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  CobrowseIO: fc5dad18af0a5e10f6d3161c1c7e24b6e03dae5d
+  Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
+  Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
 
 PODFILE CHECKSUM: 9def0df476e77b5f2b9b7498ffeeadbf861baa93
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

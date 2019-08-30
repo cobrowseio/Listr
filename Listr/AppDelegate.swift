@@ -22,26 +22,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // account.
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
-        CobrowseIO.instance().license = "trial";
-
         print("Cobrowse device id:  \(String(describing: CobrowseIO.instance().deviceId))")
 
-        CobrowseIO.instance().customData = [
-            kCBIOUserNameKey: "Sam Turner" as NSObject,
-            kCBIOUserEmailKey: "sam.turner@example.com" as NSObject
-        ]
+        let license = UserDefaults.standard.string(forKey: "license");
+        if (license != nil) {
+            print("Overriding license to: \(license!)")
+            CobrowseIO.instance().license = license;
+        } else {
+            CobrowseIO.instance().license = "trial";
+        }
+
+        let api = UserDefaults.standard.string(forKey: "api");
+        if (api != nil) {
+            print("Overriding api to: \(api!)")
+            CobrowseIO.instance().api = api;
+        }
+
+
+//        CobrowseIO.instance().customData = [
+//            kCBIOUserNameKey: "Sam Turner" as NSObject,
+//            kCBIOUserEmailKey: "sam.turner@example.com" as NSObject
+//        ]
 
 //        for online demo only
 //        UserDefaults.standard.set("abcdef", forKey: "device_id")
 //        UserDefaults.standard.synchronize()
-        let device_id = UserDefaults.standard.string(forKey: "device_id");
-        if (device_id != nil) {
-            print("Trial device_id is: \(device_id!)")
-            CobrowseIO.instance().customData = [
-                kCBIODeviceIdKey: device_id! as NSObject
-            ]
-
+        var customData = [String: NSObject]();
+        let user_name = UserDefaults.standard.string(forKey: "user_name");
+        if (user_name != nil) {
+            print("user_name is: \(user_name!)")
+            customData["user_name"] = user_name! as NSObject
         }
+        let user_email = UserDefaults.standard.string(forKey: "user_email");
+        if (user_email != nil) {
+            print("user_email is: \(user_email!)")
+            customData["user_email"] = user_email! as NSObject
+        }
+        let user_id = UserDefaults.standard.string(forKey: "user_id");
+        if (user_id != nil) {
+            print("user_id is: \(user_id!)")
+            customData["user_id"] = user_id! as NSObject
+        }
+        let device_name = UserDefaults.standard.string(forKey: "device_name");
+        if (device_name != nil) {
+            print("device_name is: \(device_name!)")
+            customData["device_name"] = device_name! as NSObject
+        }
+        let cobrowseio_device_id = UserDefaults.standard.string(forKey: "cobrowseio_device_id");
+        if (cobrowseio_device_id != nil) {
+            print("cobrowseio_device_id is: \(cobrowseio_device_id!)")
+            customData["cobrowseio_device_id"] = cobrowseio_device_id! as NSObject
+        }
+        let cobrowseio_demo_id = UserDefaults.standard.string(forKey: "cobrowseio_demo_id");
+        if (cobrowseio_demo_id != nil) {
+            print("cobrowseio_demo_id is: \(cobrowseio_demo_id!)")
+            customData["cobrowseio_demo_id"] = cobrowseio_demo_id! as NSObject
+        }
+
+        CobrowseIO.instance().customData = customData
 
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
