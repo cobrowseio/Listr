@@ -40,6 +40,8 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Add thumbnail image</string>
+	<key>CBIORenderMethod</key>
+	<integer>2</integer>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
