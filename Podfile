@@ -6,7 +6,7 @@ target 'Listr' do
   use_frameworks!
 
   # Pods for Listr
-  pod 'CobrowseIO'
+  pod 'CobrowseIO', '2.0.0-alpha.2'
   pod 'Intercom'
 
 end

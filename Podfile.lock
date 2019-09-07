@@ -1,8 +1,8 @@
 PODS:
-  - CobrowseIO (1.15.2):
-    - CobrowseIO/Release (= 1.15.2)
+  - CobrowseIO (2.0.0-alpha.2):
+    - CobrowseIO/Release (= 2.0.0-alpha.2)
     - Socket.IO-Client-Swift (~> 15.1)
-  - CobrowseIO/Release (1.15.2):
+  - CobrowseIO/Release (2.0.0-alpha.2):
     - Socket.IO-Client-Swift (~> 15.1)
   - Intercom (5.4.1)
   - Socket.IO-Client-Swift (15.1.0):
@@ -10,7 +10,7 @@ PODS:
   - Starscream (3.1.0)
 
 DEPENDENCIES:
-  - CobrowseIO
+  - CobrowseIO (= 2.0.0-alpha.2)
   - Intercom
 
 SPEC REPOS:
@@ -21,11 +21,11 @@ SPEC REPOS:
     - Starscream
 
 SPEC CHECKSUMS:
-  CobrowseIO: 580596c92771703de167b0d85eccefbb5b1bad07
+  CobrowseIO: aaa4ffeec62d9423398b9042453d72cf8d77aebf
   Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
 
-PODFILE CHECKSUM: 9def0df476e77b5f2b9b7498ffeeadbf861baa93
+PODFILE CHECKSUM: 922e9db239f5f678109f2265f1249666dda5c789
 
 COCOAPODS: 1.7.5

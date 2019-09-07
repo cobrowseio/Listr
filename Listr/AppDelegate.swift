@@ -87,6 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         CobrowseIO.instance().customData = customData
+        CobrowseIO.instance().start();
 
         // To override default status tap behavior set the status
         // tap property on the cobrowse instance.
