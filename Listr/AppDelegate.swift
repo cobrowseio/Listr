@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let license = UserDefaults.standard.string(forKey: "license");
         if (license != nil) {
             print("Overriding license to: \(license!)")
-            CobrowseIO.instance().license = license;
+            CobrowseIO.instance().license = license!;
         } else {
             CobrowseIO.instance().license = "trial";
         }
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let api = UserDefaults.standard.string(forKey: "api");
         if (api != nil) {
             print("Overriding api to: \(api!)")
-            CobrowseIO.instance().api = api;
+            CobrowseIO.instance().api = api!;
         }
 
 
