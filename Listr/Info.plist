@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CBIOBroadcastExtension</key>
-	<string>com.Listr.ListrBroadcastUploadExtension</string>
+	<string>com.Listr.BroadcastUploadExtension</string>
 	<key>CBIORenderMethod</key>
 	<integer>2</integer>
 	<key>CFBundleDevelopmentRegion</key>

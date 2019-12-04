@@ -14,6 +14,10 @@ import CobrowseIO
 class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
 
     var window: UIWindow?
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.registerForRemoteNotifications()
+    }
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -103,9 +107,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
     }
     
     func defaultSessionIndicator() -> UIView {
-        let indicator : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        indicator.backgroundColor = UIColor.red
+        let indicator : UILabel = UILabel(frame: CGRect(x: 0, y: 50, width: 200, height: 40))
+        indicator.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.7)
         indicator.text = "End Session"
+        indicator.textAlignment = .center
+        indicator.font.withSize(UIFont.smallSystemFontSize)
+        indicator.textColor = .white
+        indicator.layer.cornerRadius = 10
+        indicator.clipsToBounds = true
         
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(indicatorTapped(_:)))
         tapRecognizer.numberOfTapsRequired = 1
