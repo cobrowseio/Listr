@@ -29,7 +29,7 @@
 		47704D7E1E3D98E0008747C7 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47704D7D1E3D98E0008747C7 /* MaterialView.swift */; };
 		898D870023941BCE00A2EDF4 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898D86FF23941BCE00A2EDF4 /* ReplayKit.framework */; };
 		898D870323941BCE00A2EDF4 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898D870223941BCE00A2EDF4 /* SampleHandler.swift */; };
-		898D870723941BCE00A2EDF4 /* Listr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 898D86FE23941BCE00A2EDF4 /* Listr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		898D870723941BCE00A2EDF4 /* Listr Support.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 898D86FE23941BCE00A2EDF4 /* Listr Support.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B9698631941281FE0C7DF591 /* Pods_ListrBroadcastUploadExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D995D75FD9623DB2CAC21812 /* Pods_ListrBroadcastUploadExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				898D870723941BCE00A2EDF4 /* Listr.appex in Embed App Extensions */,
+				898D870723941BCE00A2EDF4 /* Listr Support.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +102,7 @@
 		47704D7D1E3D98E0008747C7 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		683E349F422ECD400ED886FC /* Pods-Listr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Listr/Pods-Listr.debug.xcconfig"; sourceTree = "<group>"; };
 		84CDCD64FE749277E26049A5 /* Pods-ListrBroadcastUploadExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListrBroadcastUploadExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ListrBroadcastUploadExtension/Pods-ListrBroadcastUploadExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		898D86FE23941BCE00A2EDF4 /* Listr.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Listr.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		898D86FE23941BCE00A2EDF4 /* Listr Support.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Listr Support.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		898D86FF23941BCE00A2EDF4 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		898D870223941BCE00A2EDF4 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		898D870423941BCE00A2EDF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				47704D401E3D8929008747C7 /* Listr.app */,
-				898D86FE23941BCE00A2EDF4 /* Listr.appex */,
+				898D86FE23941BCE00A2EDF4 /* Listr Support.appex */,
 			);
 			name = Products;
 			path = Listr;
@@ -288,7 +288,7 @@
 			);
 			name = ListrBroadcastUploadExtension;
 			productName = ListrBroadcastUploadExtension;
-			productReference = 898D86FE23941BCE00A2EDF4 /* Listr.appex */;
+			productReference = 898D86FE23941BCE00A2EDF4 /* Listr Support.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -616,7 +616,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 683E349F422ECD400ED886FC /* Pods-Listr.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -642,7 +641,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B43228721941818CEA011FFC /* Pods-Listr.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -687,8 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Listr.ListrBroadcastUploadExtension;
-				PRODUCT_NAME = Listr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Listr.andy.ListrBroadcastUploadExtension;
+				PRODUCT_NAME = "Listr Support";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -719,7 +717,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Listr.ListrBroadcastUploadExtension;
-				PRODUCT_NAME = Listr;
+				PRODUCT_NAME = "Listr Support";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

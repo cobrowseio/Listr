@@ -19,7 +19,7 @@ DEPENDENCIES:
   - Intercom
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - CobrowseIO
     - Intercom
     - Starscream
@@ -33,4 +33,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 84546abecc5401f68c3b472ee9f8992aa14215bd
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

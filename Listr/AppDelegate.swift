@@ -12,7 +12,7 @@ import CobrowseIO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
-
+    
     var window: UIWindow?
 
     
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         print("Cobrowse device id:  \(String(describing: CobrowseIO.instance().deviceId))")
+
+        CobrowseIO.instance().delegate = self
 
         let license = UserDefaults.standard.string(forKey: "license");
         if (license != nil) {
@@ -37,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
             print("Overriding api to: \(api!)")
             CobrowseIO.instance().api = api!;
         }
-
+        
 
 //        CobrowseIO.instance().customData = [
 //            kCBIOUserNameKey: "Sam Turner" as NSObject,
@@ -98,8 +100,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         return true
     }
     
+    func defaultSessionIndicator() -> UIView {
+        let indicator : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        indicator.backgroundColor = UIColor.red
+        indicator.text = "End Session"
+        
+        let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(indicatorTapped(_:)))
+        tapRecognizer.numberOfTapsRequired = 1
+        indicator.addGestureRecognizer(tapRecognizer)
+        return indicator
+    }
     
-
+    var indicatorInstance : UIView? = nil
+    
+    @objc
+    func indicatorTapped(_ sender: UITapGestureRecognizer) {
+        CobrowseIO.instance().currentSession()?.end(nil)
+    }
+    
+    func cobrowseShowSessionControls(_ session: CBIOSession) {
+        if (indicatorInstance == nil) {
+            indicatorInstance = self.defaultSessionIndicator()
+        }
+        
+        UIApplication.shared.keyWindow?.addSubview(indicatorInstance!)
+    }
+    
+    func cobrowseHideSessionControls(_ session: CBIOSession) {
+        if (indicatorInstance != nil) {
+            indicatorInstance!.removeFromSuperview()
+        }
+    }
+    
+    func cobrowseSessionDidUpdate(_ session: CBIOSession) { }
+    
+    func cobrowseSessionDidEnd(_ session: CBIOSession) { }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Saves changes in the application's managed object context before the application terminates.
