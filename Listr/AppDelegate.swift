@@ -106,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         let indicator : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         indicator.backgroundColor = UIColor.red
         indicator.text = "End Session"
+        indicator.isUserInteractionEnabled = true
         
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(indicatorTapped(_:)))
         tapRecognizer.numberOfTapsRequired = 1
