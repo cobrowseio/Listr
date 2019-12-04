@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
             CobrowseIO.instance().api = api!;
         }
         
+        CobrowseIO.instance().api = "https://cobrowse.eu.ngrok.io"
+        CobrowseIO.instance().license = "j6ZCJL61wJY3Vt7272Gk6p7fkNY"
+
 
 //        CobrowseIO.instance().customData = [
 //            kCBIOUserNameKey: "Sam Turner" as NSObject,
@@ -106,8 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         return true
     }
     
-    func defaultSessionIndicator() -> UIView {
-        let indicator : UILabel = UILabel(frame: CGRect(x: 0, y: 50, width: 200, height: 40))
+    func defaultSessionIndicator(container: UIView) -> UIView {
+        let indicator : UILabel = UILabel()
         indicator.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.7)
         indicator.text = "End Session"
         indicator.isUserInteractionEnabled = true
@@ -116,6 +119,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         indicator.textColor = .white
         indicator.layer.cornerRadius = 10
         indicator.clipsToBounds = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(indicator)
+        
+        indicator.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        indicator.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        indicator.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        indicator.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -50).isActive = true
         
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(indicatorTapped(_:)))
         tapRecognizer.numberOfTapsRequired = 1
@@ -132,16 +142,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
     
     func cobrowseShowSessionControls(_ session: CBIOSession) {
         if (indicatorInstance == nil) {
-            indicatorInstance = self.defaultSessionIndicator()
+            indicatorInstance = self.defaultSessionIndicator(container: UIApplication.shared.keyWindow!)
         }
-        
-        UIApplication.shared.keyWindow?.addSubview(indicatorInstance!)
+        indicatorInstance?.isHidden = false
     }
     
     func cobrowseHideSessionControls(_ session: CBIOSession) {
-        if (indicatorInstance != nil) {
-            indicatorInstance!.removeFromSuperview()
-        }
+        indicatorInstance?.isHidden = true
     }
     
     func cobrowseSessionDidUpdate(_ session: CBIOSession) { }
