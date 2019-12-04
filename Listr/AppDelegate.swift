@@ -12,6 +12,14 @@ import CobrowseIO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
+    func cobrowseSessionDidUpdate(_ session: CBIOSession) {
+        
+    }
+    
+    func cobrowseSessionDidEnd(_ session: CBIOSession) {
+        
+    }
+    
 
     var window: UIWindow?
 
@@ -23,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         // By default all sessions will be available on the trial account
         // which is accessed at https://cobrowse.io/trial
         print("Cobrowse device id:  \(String(describing: CobrowseIO.instance().deviceId))")
+        
 
         let license = UserDefaults.standard.string(forKey: "license");
         if (license != nil) {
@@ -48,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
 //        UserDefaults.standard.set("abcdef", forKey: "device_id")
 //        UserDefaults.standard.synchronize()
         var customData = [String: NSObject]();
+        customData["cobrowseio_device_id"] = CobrowseIO.instance().deviceId as NSObject
+
         let user_name = UserDefaults.standard.string(forKey: "user_name");
         if (user_name != nil) {
             print("user_name is: \(user_name!)")
