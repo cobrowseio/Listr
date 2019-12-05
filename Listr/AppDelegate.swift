@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CobrowseIO
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
@@ -17,8 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.registerForRemoteNotifications()
+        
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound];
+        center.requestAuthorization(options: options) {
+          (granted, error) in
+            if !granted {
+              print("Something went wrong", error)
+            }
+        }
     }
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -43,10 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
             print("Overriding api to: \(api!)")
             CobrowseIO.instance().api = api!;
         }
-        
-        CobrowseIO.instance().api = "https://cobrowse.eu.ngrok.io"
-        CobrowseIO.instance().license = "j6ZCJL61wJY3Vt7272Gk6p7fkNY"
-
 
 //        CobrowseIO.instance().customData = [
 //            kCBIOUserNameKey: "Sam Turner" as NSObject,
@@ -159,6 +164,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("push notification received", userInfo);
+        self.triggerNotification()
+    }
+       
+    func triggerNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Suport Request"
+        content.body = "A support agent would like to view your screen"
+        content.sound = UNNotificationSound.default()
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,repeats: false)
+        
+        let identifier = "CobrowseIOSessionRequest"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+          if let error = error {
+            print("Error sheduling notification", error);
+          }
+        })
+    }
+    
 
     // MARK: - Core Data stack
 
