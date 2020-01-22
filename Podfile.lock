@@ -1,12 +1,12 @@
 PODS:
-  - CobrowseIO (2.1.0-alpha.3):
-    - CobrowseIO/CobrowseIO (= 2.1.0-alpha.3)
+  - CobrowseIO (2.3.0):
+    - CobrowseIO/Framework (= 2.3.0)
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
-  - CobrowseIO/CobrowseIO (2.1.0-alpha.3):
+  - CobrowseIO/Extension (2.3.0):
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
-  - CobrowseIO/Extension (2.1.0-alpha.3):
+  - CobrowseIO/Framework (2.3.0):
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
   - Intercom (5.5.2)
@@ -14,24 +14,23 @@ PODS:
   - SwiftCBOR (0.4.3)
 
 DEPENDENCIES:
-  - CobrowseIO (= 2.1.0-alpha.3)
-  - CobrowseIO/Extension (= 2.1.0-alpha.3)
+  - CobrowseIO (= 2.3.0)
+  - CobrowseIO/Extension (= 2.3.0)
   - Intercom
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Intercom
   trunk:
     - CobrowseIO
+    - Intercom
     - Starscream
     - SwiftCBOR
 
 SPEC CHECKSUMS:
-  CobrowseIO: 70ae41fbb24d6eec9083bc84b935222edbee2f87
+  CobrowseIO: 9f906ad6f185851fe72d84e516cefda1081e3209
   Intercom: 1151a15e5e7931d8e401671a4357239d44325159
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftCBOR: c7d740966575e0fd5d971466de2b6776db3f10c3
 
-PODFILE CHECKSUM: cd555afc043f5b15067e4f23b3e6d96c2fdff5f8
+PODFILE CHECKSUM: 1611b203b9109378d000bec677b143165bd171a9
 
 COCOAPODS: 1.8.4
