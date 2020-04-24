@@ -24,12 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         center.requestAuthorization(options: options) {
           (granted, error) in
             if !granted {
-              print("Something went wrong", error)
+                print("Something went wrong", error!)
             }
         }
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Set your license key below to associate sessions with your
         // account.
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
             print("Overriding api to: \(api!)")
             CobrowseIO.instance().api = api!;
         }
-
+        
 //        CobrowseIO.instance().customData = [
 //            kCBIOUserNameKey: "Sam Turner" as NSObject,
 //            kCBIOUserEmailKey: "sam.turner@example.com" as NSObject
@@ -174,8 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         let content = UNMutableNotificationContent()
         content.title = "Suport Request"
         content.body = "A support agent would like to view your screen"
-        content.sound = UNNotificationSound.default()
-
+        content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,repeats: false)
         
         let identifier = "CobrowseIOSessionRequest"

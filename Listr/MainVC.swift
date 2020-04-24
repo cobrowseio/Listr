@@ -63,7 +63,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         })
         actionSheet.addAction(startCobrowse)
         actionSheet.addAction(learnMore)
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         actionSheet.view.tintColor = UIColor.darkGray
         self.navigationController?.present(actionSheet, animated: true, completion: nil)
     }
@@ -222,6 +222,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
             break
+        @unknown default:
+            return;
         }
     }
     func generateTestData() {
