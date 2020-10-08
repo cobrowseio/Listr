@@ -1,12 +1,12 @@
 PODS:
-  - CobrowseIO (2.8.6):
-    - CobrowseIO/XCFramework (= 2.8.6)
+  - CobrowseIO (2.8.8):
+    - CobrowseIO/XCFramework (= 2.8.8)
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
-  - CobrowseIO/Extension (2.8.6):
+  - CobrowseIO/Extension (2.8.8):
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
-  - CobrowseIO/XCFramework (2.8.6):
+  - CobrowseIO/XCFramework (2.8.8):
     - Starscream (~> 3.1.1)
     - SwiftCBOR (~> 0.4.3)
   - Intercom (5.5.2)
@@ -26,7 +26,7 @@ SPEC REPOS:
     - SwiftCBOR
 
 SPEC CHECKSUMS:
-  CobrowseIO: 8274d88e7eb021aaf5ef61fbd795569678260a53
+  CobrowseIO: 3a1c08f220999e88d84ee897c4f6055ff29f678f
   Intercom: 1151a15e5e7931d8e401671a4357239d44325159
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftCBOR: c7d740966575e0fd5d971466de2b6776db3f10c3
