@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         indicator.widthAnchor.constraint(equalToConstant: 200).isActive = true
         indicator.heightAnchor.constraint(equalToConstant: 40).isActive = true
         indicator.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
-        indicator.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -50).isActive = true
+        indicator.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20).isActive = true
         
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(indicatorTapped(_:)))
         tapRecognizer.numberOfTapsRequired = 1
@@ -145,16 +145,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
         CobrowseIO.instance().currentSession()?.end(nil)
     }
     
-    func cobrowseShowSessionControls(_ session: CBIOSession) {
-        if (indicatorInstance == nil) {
-            indicatorInstance = self.defaultSessionIndicator(container: UIApplication.shared.keyWindow!)
-        }
-        indicatorInstance?.isHidden = false
-    }
-    
-    func cobrowseHideSessionControls(_ session: CBIOSession) {
-        indicatorInstance?.isHidden = true
-    }
+//    func cobrowseShowSessionControls(_ session: CBIOSession) {
+//        if (indicatorInstance == nil) {
+//            indicatorInstance = self.defaultSessionIndicator(container: UIApplication.shared.keyWindow!)
+//        }
+//        indicatorInstance?.isHidden = false
+//    }
+//    
+//    func cobrowseHideSessionControls(_ session: CBIOSession) {
+//        indicatorInstance?.isHidden = true
+//    }
     
     func cobrowseSessionDidUpdate(_ session: CBIOSession) { }
     
